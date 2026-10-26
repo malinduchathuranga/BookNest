@@ -77,7 +77,7 @@ return (
             </p>
             {orders.map(order => (
               <div key={order._id} style={{ border: '1px solid var(--border)', borderRadius: '0.5rem', padding: '1.5rem', marginBottom: '1.5rem' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
                   <div>
                     <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>Order ID</p>
                     <p style={{ fontWeight: 600, fontSize: '0.875rem', wordBreak: 'break-all' }}>{order._id}</p>

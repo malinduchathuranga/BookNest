@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
-      <section className="relative isolate mx-auto mt-6 max-w-7xl overflow-hidden rounded-3xl bg-brand px-6 py-12 text-white shadow-xl shadow-brand/10 sm:px-10 lg:mt-8 lg:px-16 lg:py-16">
+      <section className="relative isolate mx-auto mt-4 max-w-7xl overflow-hidden rounded-2xl bg-brand px-5 py-10 text-white shadow-xl shadow-brand/10 sm:rounded-3xl sm:px-10 lg:mt-8 lg:px-16 lg:py-16">
         <div className="absolute -right-24 -top-28 -z-10 h-80 w-80 rounded-full bg-emerald-300/20 blur-2xl" />
         <div className="absolute -bottom-32 left-1/3 -z-10 h-80 w-80 rounded-full bg-lime-200/10 blur-3xl" />
         <div className="absolute right-12 top-12 hidden rotate-12 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm lg:block">
@@ -59,7 +59,7 @@ export default function Home() {
           <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-emerald-50 ring-1 ring-white/20">
           <BookOpen size={16} /> Books for every kind of reader
           </div>
-          <h1 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+          <h1 className="max-w-2xl text-2xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Stories worth getting lost in.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-7 text-emerald-50/85">
@@ -78,7 +78,7 @@ export default function Home() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4">
-        <section className="grid gap-4 py-10 sm:grid-cols-3">
+        <section className="grid grid-cols-1 gap-3 py-8 sm:grid-cols-3 sm:gap-4">
           {[
             ['01', 'Curated collection', 'Books selected for curious minds.'],
             ['02', 'Easy discovery', 'Search, filter, and find it faster.'],
@@ -100,11 +100,11 @@ export default function Home() {
             </div>
             <Link to="/books" className="hidden items-center gap-1 text-sm font-semibold text-brand hover:text-brand-dark sm:flex">All books <ArrowRight size={16} /></Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-4 sm:gap-4">
             {categories.slice(0, 4).map((category, index) => (
-              <Link key={category._id} to={`/books?category=${category._id}`} className={`group min-h-36 rounded-2xl p-6 text-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${['bg-slate-800', 'bg-brand', 'bg-amber-700', 'bg-indigo-900'][index % 4]}`}>
-                <span className="text-3xl font-light opacity-50">0{index + 1}</span>
-                <h3 className="mt-5 text-xl font-semibold">{category.name}</h3>
+              <Link key={category._id} to={`/books?category=${category._id}`} className={`group min-h-28 rounded-xl p-4 text-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:min-h-36 sm:rounded-2xl sm:p-6 ${['bg-slate-800', 'bg-brand', 'bg-amber-700', 'bg-indigo-900'][index % 4]}`}>
+                <span className="text-2xl font-light opacity-50 sm:text-3xl">0{index + 1}</span>
+                <h3 className="mt-3 text-base font-semibold sm:mt-5 sm:text-xl">{category.name}</h3>
                 <p className="mt-1 line-clamp-2 text-sm text-white/70">{category.description || 'Discover something new.'}</p>
               </Link>
             ))}
@@ -121,7 +121,7 @@ export default function Home() {
           </div>
           {loading ? <p className="py-12 text-center text-muted">Loading the latest books...</p> :
             error ? <p className="rounded-xl bg-red-50 p-4 text-red-700">{error}</p> :
-              books.length > 0 ?               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{books.map((book) => <BookCard key={book._id} book={book} />)}</div> :
+              books.length > 0 ? <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 sm:gap-4">{books.map((book) => <BookCard key={book._id} book={book} />)}</div> :
                 <p className="rounded-xl bg-white p-12 text-center text-muted">No books available yet.</p>}
         </section>
       </div>

@@ -54,9 +54,27 @@ export default function Checkout() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <h1 className="mb-8 text-3xl font-bold text-ink">Checkout</h1>
+      <h1 className="mb-6 text-2xl font-bold text-ink sm:text-3xl sm:mb-8">Checkout</h1>
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+      <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
+        {/* Summary — shows first on mobile via order-first */}
+        <div className="h-fit rounded-xl border border-line bg-white p-5 space-y-3 lg:order-last lg:sticky lg:top-20">
+          <h2 className="font-bold text-ink text-base">Order Summary</h2>
+          <div className="space-y-2">
+            {cart.map(item => (
+              <div key={item.bookId} className="flex justify-between text-sm">
+                <span className="text-muted truncate mr-2">{item.title} × {item.quantity}</span>
+                <span className="font-medium flex-shrink-0">{formatLKR(item.price * item.quantity)}</span>
+              </div>
+            ))}
+          </div>
+          <div className="border-t border-line pt-3 flex justify-between font-bold text-ink">
+            <span>Total</span>
+            <span>{formatLKR(getTotalPrice())}</span>
+          </div>
+          <p className="text-xs text-muted">Payment: {paymentMethod}</p>
+        </div>
+
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Delivery */}
@@ -144,23 +162,6 @@ export default function Checkout() {
           </button>
         </form>
 
-        {/* Summary */}
-        <div className="h-fit rounded-xl border border-line bg-white p-6 space-y-4">
-          <h2 className="font-bold text-ink text-lg">Order Summary</h2>
-          <div className="space-y-3">
-            {cart.map(item => (
-              <div key={item.bookId} className="flex justify-between text-sm">
-                <span className="text-muted">{item.title} × {item.quantity}</span>
-                <span className="font-medium">{formatLKR(item.price * item.quantity)}</span>
-              </div>
-            ))}
-          </div>
-          <div className="border-t border-line pt-3 flex justify-between font-bold text-ink">
-            <span>Total</span>
-            <span>{formatLKR(getTotalPrice())}</span>
-          </div>
-          <p className="text-xs text-muted">Payment: {paymentMethod}</p>
-        </div>
       </div>
     </div>
   );

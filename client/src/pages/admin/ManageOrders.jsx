@@ -43,8 +43,8 @@ export default function ManageOrders() {
       <section className="section">
         <h1>Manage Orders</h1>
 
-        <div style={{ marginBottom: '1.5rem' }}>
-          <label style={{ marginRight: '1rem' }}>Filter by Status:</label>
+        <div style={{ marginBottom: '1.5rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
+          <label>Filter by Status:</label>
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
@@ -74,7 +74,7 @@ export default function ManageOrders() {
                   marginBottom: '1.5rem'
                 }}
               >
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
                   <div>
                     <p><strong>Order ID:</strong> {order._id}</p>
                     <p><strong>Customer:</strong> {order.user?.name}</p>

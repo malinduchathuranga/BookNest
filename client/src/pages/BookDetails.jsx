@@ -91,9 +91,9 @@ export default function BookDetails() {
           <ArrowLeft size={16} /> Back to Books
         </Link>
 
-        <div className="grid gap-10 lg:grid-cols-[300px_1fr]">
+        <div className="grid gap-6 sm:gap-10 lg:grid-cols-[280px_1fr]">
           {/* Image */}
-          <div>
+          <div className="mx-auto max-w-xs sm:max-w-sm lg:max-w-none">
             <img
               src={book.imageUrl || 'https://placehold.co/300x450?text=No+Image'}
               alt={book.title}
@@ -104,7 +104,7 @@ export default function BookDetails() {
           {/* Details */}
           <div className="space-y-4">
             {book.category && <p className="text-sm font-semibold uppercase tracking-widest text-brand">{book.category.name}</p>}
-            <h1 className="text-3xl font-bold text-ink">{book.title}</h1>
+            <h1 className="text-2xl font-bold text-ink sm:text-3xl">{book.title}</h1>
             <p className="text-lg text-muted">by {book.author}</p>
 
             {book.averageRating ? (

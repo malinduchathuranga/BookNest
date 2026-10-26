@@ -24,49 +24,49 @@ export default function Cart() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <h1 className="mb-8 text-3xl font-bold text-ink">Shopping Cart</h1>
+      <h1 className="mb-6 text-2xl font-bold text-ink sm:text-3xl sm:mb-8">Shopping Cart</h1>
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+      <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
         {/* Items */}
         <div className="space-y-4">
           {cart.map(item => (
-            <div key={item.bookId} className="flex gap-4 rounded-xl border border-line bg-white p-4">
+            <div key={item.bookId} className="flex gap-3 rounded-xl border border-line bg-white p-3 sm:gap-4 sm:p-4">
               <img
                 src={item.imageUrl || 'https://placehold.co/80x110?text=Book'}
                 alt={item.title}
-                className="h-24 w-16 rounded-lg object-cover flex-shrink-0"
+                className="h-20 w-14 flex-shrink-0 rounded-lg object-cover sm:h-24 sm:w-16"
               />
-              <div className="flex flex-1 flex-col justify-between">
+              <div className="flex flex-1 flex-col justify-between min-w-0">
                 <div>
-                  <h3 className="font-semibold text-ink">{item.title}</h3>
-                  <p className="text-sm text-muted">{item.author}</p>
+                  <h3 className="truncate font-semibold text-ink text-sm sm:text-base">{item.title}</h3>
+                  <p className="text-xs text-muted sm:text-sm">{item.author}</p>
                   <p className="mt-1 text-sm font-bold text-brand">{formatLKR(item.price)}</p>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 rounded-lg border border-line">
+                <div className="mt-2 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1 rounded-lg border border-line">
                     <button
                       onClick={() => updateQuantity(item.bookId, item.quantity - 1)}
-                      className="rounded-l-lg p-2 hover:bg-page transition"
+                      className="rounded-l-lg px-2 py-1.5 hover:bg-page transition"
                     >
-                      <Minus size={15} />
+                      <Minus size={14} />
                     </button>
-                    <span className="min-w-[2rem] text-center text-sm font-semibold">{item.quantity}</span>
+                    <span className="min-w-[1.75rem] text-center text-sm font-semibold">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.bookId, item.quantity + 1)}
                       disabled={item.quantity >= item.stock}
-                      className="rounded-r-lg p-2 hover:bg-page disabled:opacity-40 transition"
+                      className="rounded-r-lg px-2 py-1.5 hover:bg-page disabled:opacity-40 transition"
                     >
-                      <Plus size={15} />
+                      <Plus size={14} />
                     </button>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <span className="font-semibold text-ink">{formatLKR(item.price * item.quantity)}</span>
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <span className="text-sm font-semibold text-ink">{formatLKR(item.price * item.quantity)}</span>
                     <button
                       onClick={() => removeFromCart(item.bookId)}
                       className="text-red-500 hover:text-red-700 transition"
                       aria-label="Remove item"
                     >
-                      <Trash2 size={18} />
+                      <Trash2 size={17} />
                     </button>
                   </div>
                 </div>

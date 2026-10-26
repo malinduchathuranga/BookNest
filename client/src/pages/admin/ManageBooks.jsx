@@ -143,7 +143,7 @@ export default function ManageBooks() {
                   <textarea name="description" value={formData.description} onChange={handleChange} />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
                   <div className="form-group">
                     <label>Price</label>
                     <input type="number" step="0.01" name="price" value={formData.price} onChange={handleChange} required />

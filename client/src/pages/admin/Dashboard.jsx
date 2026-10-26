@@ -48,7 +48,7 @@ export default function Dashboard() {
   return (
     <div className="container">
       <section className="section">
-        <h1 style={{ marginBottom: '1.75rem' }}>Dashboard</h1>
+        <h1 style={{ marginBottom: '1.75rem', fontSize: 'clamp(1.5rem, 4vw, 2rem)' }}>Dashboard</h1>
 
         {stats && (
           <>
