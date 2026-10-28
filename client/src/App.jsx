@@ -24,6 +24,7 @@ import ManageBooks from './pages/admin/ManageBooks';
 import ManageCategories from './pages/admin/ManageCategories';
 import ManageOrders from './pages/admin/ManageOrders';
 import PaymentVerification from './pages/admin/PaymentVerification';
+import ManageUsers from './pages/admin/ManageUsers';
 
 // Renders routes after auth state resolves
 function AppContent() {
@@ -54,6 +55,7 @@ function AppContent() {
           <Route path="/admin/categories" element={<ProtectedRoute adminOnly><ManageCategories /></ProtectedRoute>} />
           <Route path="/admin/orders" element={<ProtectedRoute adminOnly><ManageOrders /></ProtectedRoute>} />
           <Route path="/admin/payments" element={<ProtectedRoute adminOnly><PaymentVerification /></ProtectedRoute>} />
+          <Route path="/admin/users" element={<ProtectedRoute adminOnly><ManageUsers /></ProtectedRoute>} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

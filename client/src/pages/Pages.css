@@ -205,6 +205,12 @@
   background-color: var(--border);
 }
 
+@media (max-width: 600px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 2rem 1rem;

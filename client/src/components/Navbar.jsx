@@ -62,6 +62,7 @@ export default function Navbar() {
                 ['/admin/categories', 'Categories'],
                 ['/admin/orders', 'Orders'],
                 ['/admin/payments', 'Payments'],
+                ['/admin/users', 'Users'],
               ].map(([to, label]) => (
                 <NavLink key={to} to={to} className={navLink}>{label}</NavLink>
               ))}
@@ -119,6 +120,7 @@ export default function Navbar() {
                   ['/admin/categories', 'Categories'],
                   ['/admin/orders', 'Orders'],
                   ['/admin/payments', 'Payments'],
+                  ['/admin/users', 'Users'],
                 ].map(([to, label]) => (
                   <NavLink key={to} to={to} onClick={closeMenu} className={navLink}>{label}</NavLink>
                 ))}
