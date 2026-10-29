@@ -34,5 +34,7 @@ JWT_SECRET=anything
 
 App runs at http://localhost:5173
 
+Run : "npm run seed" to add sample data to the database
+
 ## MongoDB Atlas
 Go to Network Access and add `0.0.0.0/0` so any IP can connect.
